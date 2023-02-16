@@ -1,0 +1,15 @@
+.error {
+    font-weight: bold;
+    color: red;
+    display: block;
+}
+
+.genderPara {
+    font-weight: bold;
+    color: red;
+    display: block;
+}
+
+.border-red{
+    border-color: red;
+}
