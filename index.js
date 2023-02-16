@@ -121,6 +121,27 @@ mainForm.addEventListener("submit", function (e) {
     e.preventDefault();
 })
 
+let allEmails = [];
+
+const emailChecking = (email) => {
+    if (localStorage.getItem("peopleList") == null) {
+        peopleList = [];
+    } else {
+        peopleList = JSON.parse(localStorage.getItem('peopleList'));
+    }
+
+    for (let i = 0; i < peopleList.length; ++i) {
+        allEmails.push(peopleList[i].email);
+    }
+
+    let a = allEmails.includes(email);
+    if(a){
+        alert("Email is already Exits try with another email")
+    }
+    return a;
+
+}
+
 const submitData = () => {
 
     if (!formValidate()) {
@@ -133,6 +154,9 @@ const submitData = () => {
     let gender = getRadioValue();
     let date = document.getElementById("date").value;
 
+    if (emailChecking(email)) {
+        return false
+    }
 
     if (localStorage.getItem("peopleList") == null) {
         peopleList = [];
